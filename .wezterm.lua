@@ -9,9 +9,13 @@ config.font = wezterm.font("Consolas")
 config.font_size = 13
 
 -- User Powershell instead of CMD
+-- NOTE: check your path if the 64-bit version is above the 32-bit version
 config.default_prog = { "pwsh.exe", "-NoLogo" }
 
-config.window_background_opacity = 0.7
+config.colors = {
+	background = "#141414",
+}
+config.window_background_opacity = 0.8
 -- config.window_decorations = "NONE"
 
 -- Keymaps: tmux-like
