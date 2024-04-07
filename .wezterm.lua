@@ -4,6 +4,43 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+config.ssh_domains = {
+	{
+		-- The name of this specific domain.  Must be unique amongst
+		-- all types of domain in the configuration file.
+		name = "eric.tower",
+
+		-- identifies the host:port pair of the remote server
+		-- Can be a DNS name or an IP address with an optional
+		-- ":port" on the end.
+		remote_address = "192.168.178.21",
+
+		-- Whether agent auth should be disabled.
+		-- Set to true to disable it.
+		-- no_agent_auth = false,
+
+		-- The username to use for authenticating with the remote host
+		username = "eric",
+
+		-- If true, connect to this domain automatically at startup
+		-- connect_automatically = true,
+
+		-- Specify an alternative read timeout
+		-- timeout = 60,
+
+		-- The path to the wezterm binary on the remote host.
+		-- Primarily useful if it isn't installed in the $PATH
+		-- that is configure for ssh.
+		-- remote_wezterm_path = "/home/yourusername/bin/wezterm"
+	},
+}
+config.unix_domains = {
+	{
+		name = "unix",
+	},
+}
+-- config.default_gui_startup_args = { "connect", "unix" }
+
 -- Alacritty font
 config.font = wezterm.font("Consolas")
 config.font_size = 13
@@ -13,7 +50,7 @@ config.font_size = 13
 config.default_prog = { "pwsh.exe", "-NoLogo" }
 
 config.colors = {
-	background = "#141414",
+	-- background = "#141414",
 }
 config.window_background_opacity = 0.8
 -- config.window_decorations = "NONE"
