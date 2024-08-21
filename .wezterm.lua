@@ -1,6 +1,23 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
+-- open in fullscreen
+-- setup workspace
+wezterm.on("gui-startup", function(cmd)
+	local tab, build_pane, window = mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
+
+	--have to wait because the maximize and split are async
+	-- we can't know which one runs first
+	wezterm.sleep_ms(100)
+
+	local editor_pane = build_pane:split({
+		direction = "Left",
+		top_level = true,
+		size = 0.25,
+	})
+end)
+
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
