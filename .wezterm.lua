@@ -61,6 +61,7 @@ config.unix_domains = {
 -- Alacritty font
 config.font = wezterm.font("Consolas")
 config.font_size = 13
+config.warn_about_missing_glyphs = false
 
 -- User Powershell instead of CMD
 -- NOTE: check your path if the 64-bit version is above the 32-bit version
